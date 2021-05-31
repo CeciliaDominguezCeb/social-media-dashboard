@@ -1,13 +1,306 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+
+/*Primary*/
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+  --facebook: hsl(208, 92%, 53%);
+  --twitter: hsl(203, 89%, 53%);
+  --instagram: linear gradient hsl(37, 97%, 70%) to hsl(329, 70%, 58%);
+  --youtube: hsl(348, 97%, 39%);
+
+/* Dark Theme */
+  --toggle-dark: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+  --bg: hsl(230, 17%, 14%);
+  --card-bg: hsl(228, 28%, 20%);
+  --card-bg-hover: hsl(228, 28%, 25%);
+  --text: hsl(228, 34%, 66%);
+  --second-text:hsl(0, 0%, 100%);
+
+/*Light Theme*/
+  --toggle-light: hsl(230, 22%, 74%);
+  --bg: hsl(0, 0%, 100%);
+  --card-bg: hsl(227, 47%, 96%);
+  --card-bg-hover: hsl(227, 47%, 90%); 
+  --text: hsl(228, 12%, 44%);
+  --second-text: hsl(230, 17%, 14%);
+  --second-text: #000;
+
+  /*Typography*/
+
+  --font:'Inter', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: var(--font);
+  font-size: 62.5%;
+  background-color: var(--bg);
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 150px;
+}
+
+header h1{
+  font-size: 25px;
+  color: var(--second-text);
+}
+header p{
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+
+.switch{
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  
+}
+.switch input{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider{
+  position: absolute;
+  cursor: pointer;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--toggle-light);
+  transition: .4s;
+  border-radius: 34px;
+}
+.slider:before{
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2.4px;
+  bottom: 3.8px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider:before{
+  background-color: var(--card-bg);
+  transform:translate(25px);
+}
+input:checked + .slider  {
+  
+  background-image: linear-gradient(90deg, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+.darkmode{
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color:var(--text);
+  vertical-align: -webkit-baseline-middle;
+  margin-right: 10px;
+}
+
+.card-container{
+  max-width: 90vw;
+  min-height: 200px;
+  
+  margin: 40px 150px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(243px, 1fr));
+  gap: 25px;
+  
+
+}
+.card{
+  width: 100%;
+  min-width: 230px;
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--second-text);
+}
+.card:nth-child(1){
+  border-top: 3px solid var(--facebook);
+}
+.card:nth-child(2){
+  border-top: 3px solid var(--twitter);
+}
+.card:nth-child(3){
+  border-top: 3px solid ;
+  border-image: linear-gradient(90deg, hsl(37, 97%, 70%), hsl(329, 70%, 58%) )round;
+  border-image-slice: 1;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.card:nth-child(4){
+  border-top: 3px solid var(--youtube);
+}
+
+.card:nth-child(4) .subschange{
+  color: var(--bright-red);
+}
+
+.card:hover{
+  background-color: var(--card-bg-hover);
+  transition: .4s;
+}
+
+.user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.user img{
+  padding: 4px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.subcount{
+  font-weight: 700;
+  font-size: 45px;
+}
+
+.socialtype{
+  margin: 5px 8px 15px;
+  text-transform: uppercase;
+  letter-spacing: 4.5px;
+  color: var(--text);
+}
+
+.subschange{
+  color: var(--lime-green);
+  font-weight: 700;
+}
+.subschange small{
+  font-size: 10px;
+}
+.title-second-grid{
+  color: var(--text);
+  width: 90vw;
+  height: 20px;
+  margin: 10px 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.small-cards-container{
+  max-width: 90vw;
+  margin: 30px 150px;
+  min-height: 200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(243px, 1fr));
+  gap:25px;
+}
+.card-small{
+  width: 100%;
+  height: 100px;
+  min-width: 230px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: var(--card-bg);
+  cursor: pointer;
+  border-radius: 5px;
+  color: var(--second-text);
+}
+.card-small:hover{
+  background-color: hsl(227, 47%, 90%);
+  transition: .4s;
+}
+.card-small  p{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.card-small:nth-child(2) .percentage{
+  color: var(--bright-red);
+}
+.card-small:nth-child(7) .percentage{
+  color: var(--bright-red);
+}
+.card-small:nth-child(8) .percentage{
+  color: var(--bright-red);
+}
+.views{
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+}
+.count{
+  font-weight: 700;
+  font-size: 30px;
+}
+
+.icon{
+  width: 20px;
+  height: 20px;
+  align-self: flex-end;
+}
+
+.percentage{
+  font-size: 10px;
+  color:var(--lime-green);
+}
+.dark-mode{
+  --bg: hsl(230, 17%, 14%);
+  --card-bg: hsl(228, 28%, 20%);
+  --card-bg-hover: hsl(228, 28%, 25%);
+  --text: hsl(228, 34%, 66%);
+  --second-text:hsl(0, 0%, 100%); 
+    }
+
+
+@media screen and (max-width: 768px) {
+  header{
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .title-dashboard{
+    margin: 10px auto;
+    width: 90%;
+    height: 80px;
+    border-bottom: 1px solid var(--text);
+  }
+
+  .toggle-container{
+    margin: 10px auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .card-container{
+    width: 100%;
+    margin: 30px auto;
+    
+  }
+.small-cards-container{
+    width: 100%;
+    margin: 30px auto;
+    
+  }
+
+.title-second-grid{
+  width: 90%;
+margin: 0 auto;
+height: 100px;
+  }
+
 }

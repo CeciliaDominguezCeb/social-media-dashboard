@@ -1,24 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Header from './components/Header'
+import Social from './components/Social'
+import Interactions from './components/Interactions'
+import dataSocial from './data-social'
+import interactions from './data-interactions'
+
+
+
 
 function App() {
+  
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+
+    
+    <Header/>
+    <div className="card-container">
+      {dataSocial.map((social)=>(
+        
+        <Social 
+        key = {social.id}
+        icon= {social.icon}
+        username= {social.username}
+        subCount= {social.subCount}
+        socialType= {social.socialType}
+        iconCount= {social.socialCount}
+        day= {social.day}
+        
+        />
+      ))}
     </div>
+    <div className= "title-second-grid">
+    <h2 >Overview - Today</h2>
+    </div>
+    <div className="small-cards-container">
+    {interactions.map((interaction)=>(
+      <Interactions
+      key={interaction.id}
+      pageviews= {interaction.views}
+      icon={interaction.icon}
+      count={interaction.count}
+      iconCount={interaction.iconCount}
+      percentage={interaction.percentage}
+      />
+    ))}
+    </div> 
+
+
+  
+    
+  </>
   );
 }
 
