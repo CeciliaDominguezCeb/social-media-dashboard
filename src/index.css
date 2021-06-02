@@ -145,8 +145,6 @@ input:checked + .slider  {
   border-top: 3px solid ;
   border-image: linear-gradient(90deg, hsl(37, 97%, 70%), hsl(329, 70%, 58%) )round;
   border-image-slice: 1;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
 }
 .card:nth-child(4){
   border-top: 3px solid var(--youtube);
@@ -222,7 +220,7 @@ input:checked + .slider  {
   color: var(--second-text);
 }
 .card-small:hover{
-  background-color: hsl(227, 47%, 90%);
+  background-color: var(--card-bg-hover);
   transition: .4s;
 }
 .card-small  p{

@@ -2,11 +2,11 @@ import React from 'react'
 
 
 function Interactions(props){
-    const {id,pageviews,icon,count,iconCount,percentage}= props;
+    const {id,views,icon,count,iconCount,percentage}= props;
     return(
         <div className="card-small" key={id}>
             <p>
-            <span className="views">{pageviews}</span>
+            <span className="views">{views}</span>
             <span className="count">{count}</span>
                 
             </p>

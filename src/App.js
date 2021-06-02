@@ -14,43 +14,26 @@ function App() {
 
   return (
     <>
-
-    
     <Header/>
-    <div className="card-container">
-      {dataSocial.map((social)=>(
-        
-        <Social 
-        key = {social.id}
-        icon= {social.icon}
-        username= {social.username}
-        subCount= {social.subCount}
-        socialType= {social.socialType}
-        iconCount= {social.socialCount}
-        day= {social.day}
-        
+      <div className="card-container">
+        {dataSocial.map((social)=>(
+          <Social 
+          key = {social.id}
+          {...social}
+          />
+        ))}
+      </div>
+      <div className= "title-second-grid">
+        <h2 >Overview - Today</h2>
+      </div>
+      <div className="small-cards-container">
+      {interactions.map((interaction)=>(
+        <Interactions
+        key={interaction.id}
+        {...interaction}
         />
       ))}
-    </div>
-    <div className= "title-second-grid">
-    <h2 >Overview - Today</h2>
-    </div>
-    <div className="small-cards-container">
-    {interactions.map((interaction)=>(
-      <Interactions
-      key={interaction.id}
-      pageviews= {interaction.views}
-      icon={interaction.icon}
-      count={interaction.count}
-      iconCount={interaction.iconCount}
-      percentage={interaction.percentage}
-      />
-    ))}
-    </div> 
-
-
-  
-    
+      </div> 
   </>
   );
 }
